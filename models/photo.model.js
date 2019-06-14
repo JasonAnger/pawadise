@@ -3,11 +3,10 @@ const Schema = mongoose.Schema
 
 const photoSchema = Schema({
     _id: Schema.Types.ObjectId,
-    //ObjectID of User toString is Author
+    //ObjectID of User toString is Author of photo
     author: String,
-    //Storing some basic information of user
     url: String
 })
-const Photo = mongoose.model('Photo', photoSchema, 'pawadise')
+const Photo = mongoose.model('Photo', photoSchema, 'photos')
 
 module.exports = Photo
