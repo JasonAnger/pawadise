@@ -8,7 +8,7 @@ module.exports.getUsers = async (req, res) => {
         return res.status(404).send('No matching results.')
     }
     res.status(200).send(result).catch((error) => {
-        response.status(500).send(error)
+        res.status(500).send(error)
     })
 }
 
@@ -20,7 +20,7 @@ module.exports.getUserByUsername = async (req, res) => {
         return res.status(404).send('No matching results.')
     }
     res.status(200).send(result).catch((error) => {
-        response.status(500).send(error)
+        res.status(500).send(error)
     })
 }
 

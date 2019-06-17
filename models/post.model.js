@@ -9,9 +9,9 @@ const postSchema = Schema({
     body: {type: String, default: ''},
     comments: [{ 
         //ObjectID of User toString is Comment's Author
-        commentsAuthor: String,
+        commentsAuthor: Schema.Types.ObjectId,
         body: String,
-        date: Date,
+        date: {type: Date, default: Date.now}
     }],
     likes: [{ 
         likedUserName: {type: String, default: ''},

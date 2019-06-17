@@ -23,7 +23,7 @@ const userSchema = Schema({
       }
     }
   },
-  avatar: { type: String, default: '' },
+  avatar: Buffer,
   address: {
     street: { type: String, trim: true },
     district: { type: String, trim: true },
