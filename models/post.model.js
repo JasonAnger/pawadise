@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const postSchema = Schema({
     _id: Schema.Types.ObjectId,
     //ObjectID of User toString is Author
-    author: {type: String, default: ''},
+    author: {type: Schema.Types.ObjectId, default: null},
     //Storing some basic information of user
     body: {type: String, default: ''},
     comments: [{ 
@@ -21,6 +21,7 @@ const postSchema = Schema({
     //Post too long readMore = true (Hidden some in the body), 
     // ?readMore = false (Show it normally)
     readMore: {type: Boolean, default: false},
+    isEvent: {type: Boolean, default: false},
     tags: [{tag: {type: String, default: ''}}]
 })
 const Post = mongoose.model('Post', postSchema, 'posts')
