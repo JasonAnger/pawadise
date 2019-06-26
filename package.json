@@ -5,19 +5,32 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --inspect index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "env-cmd nodemon index.js",
+    "test": "env-cmd jest --watch"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "author": "Team High",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
     "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.2.1",
-    "mongoose": "^5.5.15",
+    "mongoose": "^5.6.0",
     "multer": "^1.4.1",
-    "nodemon": "^1.19.1",
     "sharp": "^0.22.1",
+    "shortid": "^2.2.14",
+    "superagent": "^5.1.0",
     "validator": "^11.0.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^9.0.3",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
   }
 }

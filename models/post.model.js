@@ -14,15 +14,16 @@ const postSchema = Schema({
         date: {type: Date, default: Date.now}
     }],
     likes: [{ 
-        likedUserName: {type: String, default: ''},
-        likedUserID: {type: String, default: ''},
+        likedUserID: {type: String, default: ''}
     }],
     date: { type: Date, default: Date.now },
     //Post too long readMore = true (Hidden some in the body), 
     // ?readMore = false (Show it normally)
     readMore: {type: Boolean, default: false},
     isEvent: {type: Boolean, default: false},
-    tags: [{tag: {type: String, default: ''}}]
+    notificationReceivers: [ Schema.Types.ObjectId ],
+    tags: [{tag: {type: String, default: ''}}],
+    photos: [String]
 })
 const Post = mongoose.model('Post', postSchema, 'posts')
 

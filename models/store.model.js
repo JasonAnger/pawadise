@@ -17,7 +17,13 @@ const storeSchema = new Schema({
   //Type of Store: Pet Care? Pet Cafe? Pet Shop?
   storeType: {type: String, default: ''},
   //Store Owner is also a user but have a medal to improve that this user is a store owner
-  storeOwner: {type: mongoose.Types.ObjectId, default: null}
+  storeOwner: {type: mongoose.Types.ObjectId, default: null},
+  //Reviews
+  reviews: [{
+    reviewer: mongoose.Types.ObjectId,
+    point: Number,
+    body: String
+  }]
 })
 
 const Store = mongoose.model('Store', storeSchema, 'stores')

@@ -8,4 +8,6 @@ router.get('/search', controller.search)
 
 router.get('/:id', controller.getByID)
 
+router.post('/:id', controller.postByID)
+
 module.exports = router

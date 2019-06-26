@@ -9,28 +9,28 @@ module.exports.getLogin = function (req, res) {
 }
 
 module.exports.postLogin = async (req, res) => {
-    User.findOne({ username: req.body.username })
-        .exec((err, user) => {
-            if (err) {
-                res.status(400).send({
-                    errors: ['User does not exist.']
-                })
-                return
-            }
-            let hashedPassword = md5(req.body.password) + req.body.username
-            bcrypt.compare(hashedPassword, user.hash).then( async (result) => {
-                if (!result) {
-                    res.status(500).send({
-                        errors: ['Wrong password!']
-                    })
-                    return
-                }
-                else {
-                    const token = await user.generateAuthToken()
-                    res.status(202).send({ user, token })
-                }
-            })
+    var user = await User.findOne({ username: req.body.username })
+
+    if (!user) {
+        res.status(400).send({
+            error: 'User does not exist.'
         })
+        return
+    }
+    let hashedPassword = md5(req.body.password) + req.body.username
+    bcrypt.compare(hashedPassword, user.hash).then(async (result) => {
+        if (!result) {
+            res.status(500).send({
+                errors: ['Wrong password!']
+            })
+            return
+        }
+        else {
+            const token = await user.generateAuthToken()
+            res.status(202).send({ user, token })
+        }
+    })
+
 }
 
 //Testing part

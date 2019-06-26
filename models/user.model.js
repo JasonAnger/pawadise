@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const validator = require('validator')
 const jwt = require('jsonwebtoken')
 
 
@@ -11,7 +10,7 @@ const userSchema = Schema({
   //Using in posts,
   _id: Schema.Types.ObjectId,
   //Username to login
-  username: String,
+  username: { type: String, unique: true, trim: true, required: true },
   //Storing some basic information of user
   name: { type: String, trim: true },
   age: {
@@ -23,23 +22,17 @@ const userSchema = Schema({
       }
     }
   },
-  avatar: Buffer,
   address: {
-    street: { type: String, trim: true },
-    district: { type: String, trim: true },
-    city: { type: String, trim: true },
+    street: { type: String, trim: true, default: '' },
+    district: { type: String, trim: true, default: '' },
+    city: { type: String, trim: true, default: '' },
   },
   email: {
     type: String,
     unique: true,
     required: true,
     trim: true,
-    lowercase: true,
-    validate(value) {
-      if (!validator.isEmail(value)) {
-        throw new Error('Email is invalid')
-      }
-    }
+    lowercase: true
   },
   phoneNumber: { type: String, trim: true },
   //password save as md5 String and hash is a bcrypt hash to be more secure 
@@ -53,35 +46,33 @@ const userSchema = Schema({
       type: String,
       required: true
     }
-  }]
+  }],
+  notifications: [{
+    body: String,
+    photo: Buffer,
+    date: { type: Date, default: Date.now }
+  }],
+  avatar: { type: String, required: true, default: 'public/avatar/default.png' }
 })
 
 userSchema.methods.toJSON = function () {
   const user = this
   const userObject = user.toObject()
-
   delete userObject.password
   delete userObject.tokens
-
+  delete userObject.hash
   return userObject
 }
 
 userSchema.methods.generateAuthToken = async function () {
   const user = this
-  const token = jwt.sign({ _id: user._id.toString() }, 'Signed In')
+  const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
 
   user.tokens = user.tokens.concat({ token })
   await user.save()
 
   return token
 }
-
-// // Delete user tasks when user is removed
-// userSchema.pre('remove', async function (next) {
-//   const user = this
-//   await Task.deleteMany({ owner: user._id })
-//   next()
-// })
 
 
 const User = mongoose.model('User', userSchema, 'users')
@@ -96,11 +87,11 @@ module.exports = User
 // var salt = bcrypt.genSaltSync(saltRounds)
 // var hash1 = bcrypt.hashSync(password + 'darkestdawn', salt)
 // var hash2 = bcrypt.hashSync(password + 'sungoesdown', salt)
-// // var Dawn = new User({ _id: new mongoose.Types.ObjectId(), username: 'darkestdawn', password: password, hash: hash1 })
-// // Dawn.save(function (err) {
-// //   if (err) return handleError(err)
-// // })
-// // //console.log(Dawn)
+// var Dawn = new User({ _id: new mongoose.Types.ObjectId(), username: 'darkestdawn', password: password, hash: hash1 })
+// Dawn.save(function (err) {
+//   if (err) return handleError(err)
+// })
+// //console.log(Dawn)
 
 // var Sun = new User({ 
 //   _id: new mongoose.Types.ObjectId(),
