@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt')
 const User = require('../models/user.model')
 
 module.exports.getLogin = function (req, res) {
-    res.status(200).send('Logged In')
+    res.status(200).send('Login Page')
 }
 
 module.exports.postLogin = async (req, res) => {

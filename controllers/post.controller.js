@@ -1,11 +1,13 @@
 const mongoose = require('mongoose')
 const sharp = require('sharp')
 
+
 const Post = require('../models/post.model')
+const User = require('../models/user.model')
 
 module.exports.getByID = async (req, res) => {
     var id = req.params.id
-    var result = await Post.findOne({ _id: ObjectID(id) }).exec()
+    var result = await Post.findById(id)
     if (!result) {
         return res.status(404).send('No matching results.')
     }
@@ -16,41 +18,54 @@ module.exports.getByID = async (req, res) => {
 
 
 module.exports.postByID = async (req, res) => {
-    var id = req.params.id
-    var result = await Post.findOne({ _id: ObjectID(id) }).exec()
-    if (!result) {
-        return res.status(404).send('No matching results.')
-    }
-    var comment = {
-        author: req.user._id,
-        body: req.body.comment
-    }
-    result.comments.push(comment)
-    //When users comment they can get notifications of Post
-    var doesNotificate = await result.notificationReceivers.find({ receiver: req.user._id })
-    if (!doesNotificate) {
-        result.notificationReceivers.push(req.user._id)
-    }
-    //When user comment send notifications to others
-    var postPhotoThumb = await sharp(result.photos[0].photo).resize({ width: 250, height: 250 }).png().toBuffer()
-    result.notificationReceivers.forEach(async (element) => {
-        user = await User.findOne({ _id: element.receiver })
-        user.notifications.push({
-            body: (req.user.name + " has just commented on this post."),
-            photo: postPhotoThumb
+    try {
+        var id = req.params.id
+        //console.log(req.file)
+        var result = await Post.findById(id)
+        if (!result) {
+            return res.status(404).send('No matching results.')
+        }
+        var comment = {
+            commentsAuthor: req.user._id,
+            body: req.body.comment
+        }
+        if (req.file) { comment.photo = req.file.path }
+        result.comments.push(comment)
+        //When users comment they can get notifications of Post
+        var doesNotificate = await result.notificationReceivers.filter((element) => {
+            return element.receiver === req.user._id
         })
-        user.save()
-    });
-    result.save()
-    res.status(200).send(result).catch((error) => {
-        res.status(500).send(error)
-    })
+        if (!doesNotificate) {
+            result.notificationReceivers.push({receiver: req.user._id})
+        }
+        //When user comment send notifications to others
+        // if (result.photos) {
+        //     var postPhotoThumb = await sharp('.'+result.photos[0]).resize({ width: 188, height: 188 }).png().toBuffer()
+        // } else {
+        //     var user = await User.findById(req.user._id)
+        //     var postPhotoThumb = await sharp('.'+user.avatar).resize({ width: 188, height: 188 }).png().toBuffer()
+        // }
+        result.notificationReceivers.forEach(async (element) => {
+            if (element.receiver != req.user._id) {
+                user = await User.findByID(element.receiver)
+                user.notifications.push({
+                    body: (req.user.name + " has just commented on this post."),
+                    //photo: postPhotoThumb
+                })
+                user.save()
+            }
+        });
+        result.save()
+        res.status(200).send(result)
+    } catch (err) {
+        res.status(400).send(err)
+    }
 }
 
 
 module.exports.deleteByID = async (req, res) => {
     var id = req.params.id
-    await Post.findOneAndRemove({ _id: id })
+    await Post.findByIdAndRemove(id)
     res.status(200).send("Your post has been deleted").catch((error) => {
         res.status(500).send(error)
     })

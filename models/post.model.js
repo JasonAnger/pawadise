@@ -4,27 +4,37 @@ const Schema = mongoose.Schema
 const postSchema = Schema({
     _id: Schema.Types.ObjectId,
     //ObjectID of User toString is Author
-    author: {type: Schema.Types.ObjectId, default: null},
+    author: { type: Schema.Types.ObjectId, default: null },
     //Storing some basic information of user
-    body: {type: String, default: ''},
-    comments: [{ 
+    body: { type: String, default: '' },
+    comments: [{
         //ObjectID of User toString is Comment's Author
         commentsAuthor: Schema.Types.ObjectId,
         body: String,
-        date: {type: Date, default: Date.now}
+        photo: { type: String, default: '' },
+        date: { type: Date, default: Date.now }
     }],
-    likes: [{ 
-        likedUserID: {type: String, default: ''}
+    likes: [{
+        likedUserID: { type: Schema.Types.ObjectId, default: '' }
     }],
     date: { type: Date, default: Date.now },
     //Post too long readMore = true (Hidden some in the body), 
     // ?readMore = false (Show it normally)
-    readMore: {type: Boolean, default: false},
-    isEvent: {type: Boolean, default: false},
-    notificationReceivers: [ Schema.Types.ObjectId ],
-    tags: [{tag: {type: String, default: ''}}],
+    readMore: { type: Boolean, default: false },
+    isEvent: { type: Boolean, default: false },
+    isSale: { type: Boolean, default: false },
+    notificationReceivers: [{ receiver: Schema.Types.ObjectId }],
+    tags: [{ tag: { type: String, default: '' } }],
     photos: [String]
 })
+
+postSchema.methods.toJSON = function () {
+    const post = this
+    const postObject = post.toObject()
+    postObject.likesQuantity = post.likes.length
+    return postObject
+  }
+
 const Post = mongoose.model('Post', postSchema, 'posts')
 
 module.exports = Post

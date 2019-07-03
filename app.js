@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const bodyParser = require('body-parser')
+const cors = require('cors')
 
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -34,6 +34,8 @@ const authLogin = require('./auth/login.auth')
 
 const app = express()
 
+app.use(cors())
+
 app.use('/public', express.static('public'))
 
 app.use(express.json()) // for parsing application/json
@@ -63,10 +65,11 @@ app.get('/events', authLogin, async (req, res) => {
 
 app.use('/users', authLogin, usersRouter)
 
-app.get('/shop', storeController.getShop)
-app.get('/cafe', storeController.getCafe)
-app.get('/medical', storeController.getMedical)
-app.use('/stores', storesRouter)
+app.get('/shop', authLogin, storeController.getShop)
+app.get('/service', authLogin, storeController.getService)
+// app.get('/cafe', authLogin, storeController.getCafe)
+// app.get('/medical', authLogin, storeController.getMedical)
+app.use('/stores', authLogin, storesRouter)
 
 
 app.use('/posts', authLogin, postsRouter)

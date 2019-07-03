@@ -47,12 +47,12 @@ const userSchema = Schema({
       required: true
     }
   }],
+  avatar: { type: String, required: true, default: 'public/avatar/default.png' },
   notifications: [{
     body: String,
-    photo: Buffer,
+    //photo: Buffer,
     date: { type: Date, default: Date.now }
-  }],
-  avatar: { type: String, required: true, default: 'public/avatar/default.png' }
+  }]
 })
 
 userSchema.methods.toJSON = function () {
@@ -78,35 +78,4 @@ userSchema.methods.generateAuthToken = async function () {
 const User = mongoose.model('User', userSchema, 'users')
 
 module.exports = User
-
-
-// const md5 = require('md5')
-// const bcrypt = require('bcrypt')
-// var password = md5('7749password')
-// var saltRounds = 10
-// var salt = bcrypt.genSaltSync(saltRounds)
-// var hash1 = bcrypt.hashSync(password + 'darkestdawn', salt)
-// var hash2 = bcrypt.hashSync(password + 'sungoesdown', salt)
-// var Dawn = new User({ _id: new mongoose.Types.ObjectId(), username: 'darkestdawn', password: password, hash: hash1 })
-// Dawn.save(function (err) {
-//   if (err) return handleError(err)
-// })
-// //console.log(Dawn)
-
-// var Sun = new User({ 
-//   _id: new mongoose.Types.ObjectId(),
-//   name: 'Sun Goes Down', 
-//   username: 'sungoesdownblabla',
-//   email: 'sungoesdown@gmail.com', 
-//   password: password, hash: hash2 })
-// Sun.save()
-// console.log(Sun)
-
-// User.find({ age: 20 })
-//   .exec((err, users) => {
-//     if (err) {
-//       console.log({ message: err.message });
-//     }
-//     console.log(users[0].username)
-//   })
 

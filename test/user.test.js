@@ -2,9 +2,9 @@ const request = require('supertest')
 const app = require('../app')
 const User = require('../models/user.model')
 
-beforeEach(async () => {
-    await User.deleteMany()
-})
+// beforeEach(async () => {
+//     await User.deleteMany()
+// })
 
 test('Signup a User', async () => {
     await request(app).post('/register').send({
@@ -22,5 +22,11 @@ test('Login', async () => {
     await request(app).post('/login').send({
         username: 'jayan',
         password: '7749password'
-    })
+    }).expect(202)
+})
+
+
+
+test('Error page', async () => {
+    await request(app).get('/uisb').expect(404)
 })

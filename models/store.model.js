@@ -1,38 +1,44 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-//mongoose.connect('mongodb://localhost/pawadise',{ useNewUrlParser: true })
 
 const storeSchema = new Schema({
   _id: mongoose.Types.ObjectId,
   //Storing some basic information of user
-  name: {type: String, default: ''},
-  avatar: {type: String, default: ''},
+  name: { type: String, default: '' },
+  avatar: { type: String, default: 'public/avatar/default.png' },
   address: {
-    street: {type: String, default: ''},
-    district: {type: String, default: ''},
-    city: {type: String, default: ''}
+    street: { type: String, default: '' },
+    district: { type: String, default: '' },
+    city: { type: String, default: '' }
   },
-  phoneNumber: {type: String, default: ''},
+  phoneNumber: { type: String, default: '' },
   //Type of Store: Pet Care? Pet Cafe? Pet Shop?
-  storeType: {type: String, default: ''},
+  storeType: { type: String, default: '' },
   //Store Owner is also a user but have a medal to improve that this user is a store owner
-  storeOwner: {type: mongoose.Types.ObjectId, default: null},
+  storeOwner: { type: mongoose.Types.ObjectId, default: null },
   //Reviews
   reviews: [{
     reviewer: mongoose.Types.ObjectId,
-    point: Number,
-    body: String
+    point: {type: Number, default: 4},
+    body: String,
+    photos: [String]
   }]
 })
 
+storeSchema.methods.toJSON = function () {
+  const store = this
+  const storeObject = store.toObject()
+  var sum = 0
+  storeObject.reviews.forEach((review) => {
+    sum = sum + review.point
+  })
+  if (sum) storeObject.averagePoint = (sum / storeObject.reviews.length)
+  else storeObject.averagePoint = 0
+  return storeObject
+}
+
+
 const Store = mongoose.model('Store', storeSchema, 'stores')
-
-// var newStore = new Store({_id: new mongoose.Types.ObjectId(), name:'AloALo', phoneNumber:'0923712039'})
-// newStore.save(function (err) {
-//   if (err) return handleError(err)
-// })
-// console.log(newStore)
-
 
 module.exports = Store

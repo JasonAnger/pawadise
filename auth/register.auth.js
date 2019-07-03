@@ -17,12 +17,6 @@ module.exports = async (req, res, next) => {
     if (req.body.password.length < 8) {
         errors.push('Password must have 8 or more than 8 characters.')
     }
-    if (!req.body.district) {
-        errors.push('District is required.')
-    }
-    if (!req.body.city) {
-        errors.push('City is required.')
-    }
     await User.find({ username: req.body.username }).exec((err, result) => {
         if (result.length > 0) {
             errors.push('The username you choose is already exist.')
