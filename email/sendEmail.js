@@ -22,11 +22,11 @@ const sendResetPasswordCodeEmail = (email, name, code) => {
     })    
 }
 
-const sendRequest = (email, name, phone, content) => {
+const sendRequest = (email, name, phone, content, title) => {
     sgMail.send({
         to: 'Pawadise.vn@gmail.com',
         from: 'Pawadise.vn@gmail.com',
-        subject: `Request from ${name} - Phone: ${phone}`,
+        subject: `${title} - Request from ${name} - Phone: ${phone}`,
         text: 
         `Email: ${email}
         Name: ${name}

@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
@@ -35,6 +36,13 @@ const authLogin = require('./auth/login.auth')
 const app = express()
 
 app.use(cors())
+
+app.use(session({
+    secret: process.env.JWT_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    cookie: { secure: true }
+}));
 
 app.use('/public', express.static('public'))
 

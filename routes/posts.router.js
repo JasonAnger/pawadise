@@ -58,6 +58,8 @@ router.get('/:id', controller.getByID)
 
 router.post('/:id', upload.single('photo'), controller.postByID)
 
+router.post('/:id/like', controller.postLikeByID)
+
 router.delete('/:id', controller.deleteByID)
 
 

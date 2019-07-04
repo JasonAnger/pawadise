@@ -15,7 +15,8 @@ const postSchema = Schema({
         date: { type: Date, default: Date.now }
     }],
     likes: [{
-        likedUserID: { type: Schema.Types.ObjectId, default: '' }
+        likedUserID: Schema.Types.ObjectId,
+        likedUserName: String
     }],
     date: { type: Date, default: Date.now },
     //Post too long readMore = true (Hidden some in the body), 
@@ -33,7 +34,7 @@ postSchema.methods.toJSON = function () {
     const postObject = post.toObject()
     postObject.likesQuantity = post.likes.length
     return postObject
-  }
+}
 
 const Post = mongoose.model('Post', postSchema, 'posts')
 

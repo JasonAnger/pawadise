@@ -17,6 +17,11 @@ const storeSchema = new Schema({
   storeType: { type: String, default: '' },
   //Store Owner is also a user but have a medal to improve that this user is a store owner
   storeOwner: { type: mongoose.Types.ObjectId, default: null },
+  product: [{
+    photo: String,
+    name: String,
+    price: Number
+  }],
   //Reviews
   reviews: [{
     reviewer: mongoose.Types.ObjectId,

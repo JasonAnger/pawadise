@@ -50,9 +50,6 @@ module.exports.postByID = async (req, res) => {
             body: req.body.body,
             point: req.body.point
         }
-        console.log(req.body)
-        console.log(newReview)
-        console.log(req.files)
         if (req.file) {
             for (var i = 0; i < req.files.length; i++) {
                 newReview.photos.push(req.files[i].path)
@@ -65,6 +62,27 @@ module.exports.postByID = async (req, res) => {
         res.status(500).send(e)
     }
 }
+
+module.exports.postLikeByID = async (req, res) => {
+    try {
+        var id = req.params.id
+        var result = await Store.findById(id)
+        if (!result) {
+            return res.status(405).send('405 Method Not Allowed.')
+        }
+        var newLikedUser = {
+            likedUserID: req.user._id,
+            likedUserName: req.user.name
+        }
+        result.reviews.push(newLikedUser)
+        result.save()
+        res.status(200)
+    } catch (e) {
+        res.status(500).send(e)
+    }
+}
+
+
 
 
 module.exports.search = async (req, res) => {
