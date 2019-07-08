@@ -33,24 +33,16 @@ module.exports.postByID = async (req, res) => {
         result.comments.push(comment)
         //When users comment they can get notifications of Post
         var doesNotificate = await result.notificationReceivers.filter((element) => {
-            return element.receiver === req.user._id
+            return element.receiver.equals(req.user._id)
         })
-        if (!doesNotificate) {
+        if (doesNotificate.length==0) {
             result.notificationReceivers.push({ receiver: req.user._id })
         }
-        //When user comment send notifications to others
-        // if (result.photos) {
-        //     var postPhotoThumb = await sharp('.'+result.photos[0]).resize({ width: 188, height: 188 }).png().toBuffer()
-        // } else {
-        //     var user = await User.findById(req.user._id)
-        //     var postPhotoThumb = await sharp('.'+user.avatar).resize({ width: 188, height: 188 }).png().toBuffer()
-        // }
         result.notificationReceivers.forEach(async (element) => {
             if (element.receiver != req.user._id) {
                 var user = await User.findOne({ _id: element.receiver })
                 user.notifications.push({
-                    body: (req.user.name + " has just commented on this post."),
-                    //photo: postPhotoThumb
+                    body: (req.user.name + " commented on this post."),
                 })
                 user.save()
             }
@@ -78,6 +70,13 @@ module.exports.postLikeByID = async (req, res) => {
         })
         if (doesLike.length == 0) {
             result.likes.push(newLikedUser)
+            if (!result.author.equals(req.user._id)) {
+                var user = await User.findOne({ _id: result.author })
+                user.notifications.push({
+                    body: (req.user.name + " đã thích bài viết của bạn."),
+                })
+                user.save()
+            }
         } else {
             result.likes = await result.likes.filter((element) => {
                 return !element.likedUserID.equals(req.user._id)
@@ -93,9 +92,9 @@ module.exports.postLikeByID = async (req, res) => {
 
 module.exports.deleteByID = async (req, res) => {
     var id = req.params.id
-    await Post.findByIdAndRemove(id)
-    res.status(200).send("Your post has been deleted").catch((error) => {
-        res.status(500).send(error)
-    })
+    var result = await Post.findById(id)
+    if(req.user._id!=result.author){
+    res.status(200).send("Your post has been deleted")
+    } else {res.status(405).send("405 METHOD NOT ALLOWED")}
 }
 

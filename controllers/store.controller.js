@@ -63,26 +63,6 @@ module.exports.postByID = async (req, res) => {
     }
 }
 
-module.exports.postLikeByID = async (req, res) => {
-    try {
-        var id = req.params.id
-        var result = await Store.findById(id)
-        if (!result) {
-            return res.status(405).send('405 Method Not Allowed.')
-        }
-        var newLikedUser = {
-            likedUserID: req.user._id,
-            likedUserName: req.user.name
-        }
-        result.reviews.push(newLikedUser)
-        result.save()
-        res.status(200)
-    } catch (e) {
-        res.status(500).send(e)
-    }
-}
-
-
 
 
 module.exports.search = async (req, res) => {
