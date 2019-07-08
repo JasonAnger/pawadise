@@ -43,6 +43,8 @@ router.get('/me', async (req, res) => {
     res.send(req.user)
 })
 
+router.get('/:id', controller.getUserById)
+
 router.patch('/me', loginAuth, upload.single('avatar'), async (req, res) => {
     req.body.avatar = req.file.path
     const updates = Object.keys(req.body)
