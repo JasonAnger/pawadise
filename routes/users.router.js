@@ -46,7 +46,7 @@ router.get('/me', async (req, res) => {
 router.patch('/me', loginAuth, upload.single('avatar'), async (req, res) => {
     req.body.avatar = req.file.path
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['name', 'email', 'age', 'avatar']
+    const allowedUpdates = ['name', 'email', 'age', 'avatar', 'street', 'district', 'city', 'phoneNumber']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
 
     if (!isValidOperation) {
@@ -61,39 +61,6 @@ router.patch('/me', loginAuth, upload.single('avatar'), async (req, res) => {
     }
 })
 
-// router.delete('/me', loginAuth, async (req, res) => {
-//     try {
-//         await req.user.remove()
-//         sendCancelationEmail(req.user.email, req.user.name)
-//         res.send(req.user)
-//     } catch (e) {
-//         res.status(500).send()
-//     }
-// })
-
-// router.post('/me/avatar', upload.single('avatar'), async (req, res) => {
-//     const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
-//     req.user.avatar = buffer
-//     await req.user.save()
-//     res.send()
-// }, (error, req, res, next) => {
-//     res.status(400).send({ error: error.message })
-// })
-
-// router.get('/:id/avatar', async (req, res) => {
-//     try {
-//         const user = await User.findById(req.params.id)
-
-//         if (!user || !user.avatar) {
-//             throw new Error()
-//         }
-
-//         res.set('Content-Type', 'image/png')
-//         res.send(user.avatar)
-//     } catch (e) {
-//         res.status(404).send()
-//     }
-// })
 
 router.get('/:username', controller.getUserByUsername)
 
