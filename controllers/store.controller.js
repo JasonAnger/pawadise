@@ -74,7 +74,9 @@ module.exports.search = async (req, res) => {
 }
 
 module.exports.getShop = async (req, res) => {
-    var result = await Store.find({ storeType: 'Shop' }).exec()
+    let page = parseInt(req.query.page) || 1
+    const perPage = 1
+    let result = await Store.find({ storeType: 'Shop' }).skip((page - 1) * perPage).limit(perPage)
     if (!result) {
         return res.status(404).send('No matching results.')
     }
@@ -84,7 +86,9 @@ module.exports.getShop = async (req, res) => {
 }
 
 module.exports.getService = async (req, res) => {
-    var result = await Store.find({ storeType: 'Service' }).exec()
+    let page = parseInt(req.query.page) || 1
+    const perPage = 10
+    let result = await Store.find({ storeType: 'Service' }).skip((page - 1) * perPage).limit(perPage)
     if (!result) {
         return res.status(404).send('No matching results.')
     }
@@ -92,23 +96,3 @@ module.exports.getService = async (req, res) => {
         res.status(500).send(error)
     })
 }
-
-// module.exports.getCafe = async (req, res) => {
-//     var result = await Store.find({ storeType: 'Cafe' }).exec()
-//     if (!result) {
-//         return res.status(404).send('No matching results.')
-//     }
-//     res.status(200).send(result).catch((error) => {
-//         res.status(500).send(error)
-//     })
-// }
-
-// module.exports.getMedical = async (req, res) => {
-//     var result = await Store.find({ storeType: 'Medical' }).exec()
-//     if (!result) {
-//         return res.status(404).send('No matching results.')
-//     }
-//     res.status(200).send(result).catch((error) => {
-//         res.status(500).send(error)
-//     })
-// }

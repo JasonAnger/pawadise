@@ -3,6 +3,8 @@ const multer = require('multer')
 
 const controller = require('../controllers/store.controller')
 
+const authLogin = require('../auth/login.auth')
+
 const router = express.Router()
 
 
@@ -34,6 +36,6 @@ router.get('/search', controller.search)
 
 router.get('/:id', controller.getByID)
 
-router.post('/:id', upload.array('photos', 4), controller.postByID)
+router.post('/:id', authLogin, upload.array('photos', 4), controller.postByID)
 
 module.exports = router

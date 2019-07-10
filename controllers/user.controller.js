@@ -24,6 +24,10 @@ module.exports.getUserByUsername = async (req, res) => {
     })
 }
 
+module.exports.getMe = async (req, res) => {
+    res.send(req.user)
+}
+
 module.exports.getUserById = async (req, res) => {
     var id = req.params.id
     var result = await User.findById(id)
@@ -33,6 +37,24 @@ module.exports.getUserById = async (req, res) => {
     res.status(200).send(result).catch((error) => {
         res.status(500).send(error)
     })
+}
+
+module.exports.patchUserById = async (req, res) => {
+    req.body.avatar = req.file.path
+    const updates = Object.keys(req.body)
+    const allowedUpdates = ['name', 'email', 'age', 'avatar', 'street', 'district', 'city', 'phoneNumber']
+    const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
+
+    if (!isValidOperation) {
+        return res.status(400).send({ error: 'Invalid updates!' })
+    }
+    try {
+        updates.forEach((update) => req.user[update] = req.body[update])
+        await req.user.save()
+        res.send(req.user)
+    } catch (e) {
+        res.status(400).send(e)
+    }
 }
 
 module.exports.searchUsers = async (req, res) => {

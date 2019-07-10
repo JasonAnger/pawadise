@@ -19,6 +19,7 @@ const usersRouter = require('./routes/users.router')
 const storesRouter = require('./routes/stores.router')
 const postsRouter = require('./routes/posts.router')
 const resetPasswordRouter = require('./routes/resetpassword.router')
+const galleryRouter = require('./routes/gallery.router')
 const adminRouter = require('./routes/admin.router')
 
 //Controllers
@@ -45,18 +46,11 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.get('/', authLogin, homeController.get)
 app.get('/home', authLogin, homeController.get)
 
-app.get('/news', authLogin, async (req, res) => {
+app.get('/news', async (req, res) => {
     try {
-        var posts = await Post.find()
-        res.status(200).send(posts)
-    } catch (e) {
-        res.status(500).send(e)
-    }
-})
-
-app.get('/events', authLogin, async (req, res) => {
-    try {
-        var posts = await Post.find({ isEvent: true })
+        let page = parseInt(req.query.page) || 1
+        const perPage = 20
+        let posts = await Post.find().skip((page - 1) * perPage).limit(perPage)
         res.status(200).send(posts)
     } catch (e) {
         res.status(500).send(e)
@@ -65,21 +59,14 @@ app.get('/events', authLogin, async (req, res) => {
 
 app.use('/users', authLogin, usersRouter)
 
-app.get('/shop', authLogin, storeController.getShop)
-app.get('/service', authLogin, storeController.getService)
-// app.get('/cafe', authLogin, storeController.getCafe)
-// app.get('/medical', authLogin, storeController.getMedical)
-app.use('/stores', authLogin, storesRouter)
-
+app.get('/shop', storeController.getShop)
+app.get('/service', storeController.getService)
+app.use('/stores', storesRouter)
 
 app.use('/posts', authLogin, postsRouter)
 
 app.get('/contact', async (req, res) => {
-    try {
-        res.status(200).send('Contact Page.')
-    } catch (e) {
-        res.status(500).send(e)
-    }
+    res.status(200).send('Contact Page')
 })
 
 app.post('/contact', async (req, res) => {
@@ -88,12 +75,15 @@ app.post('/contact', async (req, res) => {
             req.body.Email,
             req.body.name,
             req.body.phone,
-            req.body.content
+            req.body.content,
+            req.body.title
         )
     } catch (e) {
         res.status(500).send(e)
     }
 })
+
+app.use('/gallery', galleryRouter)
 
 app.get('/register', authLogin, registerController.getRegister)
 app.post('/register', authRegister, registerController.postRegister)

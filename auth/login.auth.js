@@ -10,7 +10,6 @@ module.exports = async (req, res, next) => {
 
         if (!user) {
             next()
-            return 
         }
 
         req.token = token
