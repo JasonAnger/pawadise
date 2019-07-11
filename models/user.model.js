@@ -1,10 +1,7 @@
 const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
 
-
 const Schema = mongoose.Schema
-
-mongoose.connect('mongodb://localhost/pawadise', { useNewUrlParser: true })
 
 const userSchema = Schema({
   //Using in posts,

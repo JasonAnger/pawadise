@@ -22,12 +22,12 @@
     "express-session": "^1.16.2",
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.2.1",
-    "mongoose": "^5.6.0",
+    "mongoose": "^5.6.4",
     "multer": "^1.4.1",
     "sharp": "^0.22.1",
     "shortid": "^2.2.14",
     "superagent": "^5.1.0",
-    "validator": "^11.0.0"
+    "validator": "^11.1.0"
   },
   "devDependencies": {
     "env-cmd": "^9.0.3",

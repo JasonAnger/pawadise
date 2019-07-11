@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
+mongoose.disconnect()
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useCreateIndex: true,
