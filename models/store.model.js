@@ -7,12 +7,11 @@ const storeSchema = new Schema({
   //Storing some basic information of user
   name: { type: String, default: '' },
   avatar: { type: String, default: 'public/avatar/default.png' },
-  address: {
-    street: { type: String, default: '' },
-    district: { type: String, default: '' },
-    city: { type: String, default: '' }
-  },
+  address: { type: String, default: '' },
   phoneNumber: { type: String, default: '' },
+  openTime: { type: String, default: '' },
+  description: { type: String, default: '' },
+  photos: [String],
   //Type of Store: Pet Care? Pet Cafe? Pet Shop?
   storeType: { type: String, default: '' },
   //Store Owner is also a user but have a medal to improve that this user is a store owner

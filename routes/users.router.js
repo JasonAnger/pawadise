@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
         cb(null,'./public/avatar/')
     },
     filename: (req, file, cb) => {
-        cb(null,new Date().toISOString() + file.originalname)
+        cb(null,new Date().toDateString() + file.originalname)
     }
 })
 
@@ -26,7 +26,7 @@ const upload = multer({
         fileSize: 512 * 512 * 5
     },
     fileFilter(req, file, cb) {
-        if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+        if (!file.originalname.match(/\.(jpg|jpeg|png|JPG|JPEG|PNG)$/)) {
             return cb(new Error('Please upload an image'))
         }
 

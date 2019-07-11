@@ -3,28 +3,29 @@ const Product = require('../models/product.model')
 const mongoose = require('mongoose')
 
 module.exports.createNewStore = async (req, res) => {
-    var newStore = new Store({
-        _id: new mongoose.Types.ObjectId,
-        name: req.body.name,
-        address: {
-            street: req.body.street,
-            district: req.body.district,
-            city: req.body.city
-        },
-        phoneNumber: req.body.phoneNumber,
-        storeType: req.body.storeType
-    })
-    if (req.file) { newStore.avatar = req.file.path }
-    if (req.files) {
-        for (let i = 0; i < req.files.length; i++) {
-            newStore.photos.push(req.files[i].path)
+    try {
+        var newStore = new Store({
+            _id: new mongoose.Types.ObjectId,
+            name: req.body.name,
+            address: req.body.address,
+            phoneNumber: req.body.phoneNumber,
+            openTime: req.body.openTime,
+            description: req.body.description,
+            storeType: req.body.storeType
+        })
+        if (req.files.length != 0) {
+            for (let i = 0; i < req.files.length -1; i++) {
+                newStore.photos.push(req.files[i].path)
+            }
+            newStore.avatar=req.files[req.files.length -1].path
         }
-    }
-    newStore.save().then(() => {
-        res.status(200).send(newStore)
-    }).catch((err) => {
+        newStore.save().then(() => {
+            res.status(200).send(newStore)
+        })
+    } catch (err) {
+        console.log(err)
         res.status(400).send(err)
-    })
+    }
 }
 
 module.exports.getByID = async (req, res) => {
@@ -69,6 +70,7 @@ module.exports.postByID = async (req, res) => {
         if (req.files) {
             for (var i = 0; i < req.files.length; i++) {
                 newReview.photos.push(req.files[i].path)
+                result.photos.push(req.files[i].path)
             }
         }
         result.reviews.push(newReview)
@@ -86,15 +88,17 @@ module.exports.postProductByID = async (req, res) => {
         if (!result) {
             return res.status(404).send('404 Not found.')
         }
-        var newProduct = {
+        var newProduct = new Product({
+            _id: new mongoose.Types.ObjectId,
             store: id,
-            description: req.body.description,
             name: req.body.name,
-            image: req.file.path
-        }
+            image: req.file.path,
+            price: req.body.price
+        })
         newProduct.save()
         res.status(200).send(newProduct)
     } catch (e) {
+        console.log(e)
         res.status(500).send(e)
     }
 }

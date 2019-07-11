@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
         cb(null, './public/posts/')
     },
     filename: (req, file, cb) => {
-        cb(null, new Date().toISOString() + file.originalname)
+        cb(null, new Date().toDateString() + file.originalname)
     }
 })
 
@@ -23,7 +23,7 @@ const upload = multer({
         fileSize: 512 * 512 * 5
     },
     fileFilter(req, file, cb) {
-        if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+        if (!file.originalname.match(/\.(jpg|jpeg|png|JPG|JPEG|PNG)$/)) {
             return cb(new Error('Please upload an image'))
         }
 
@@ -40,7 +40,7 @@ router.post('', upload.array('photos', 8), async (req, res) => {
             isEvent: req.body.check,
             tags: req.body.tags
         })
-        if (req.files) {
+        if (req.files.length!=0) {
             for (let i = 0; i < req.files.length; i++) {
                 newPost.photos.push(req.files[i].path)
             }

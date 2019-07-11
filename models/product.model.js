@@ -6,9 +6,9 @@ const productSchema = Schema({
     //ObjectID of Store toString is Store
     store: Schema.Types.ObjectId,
     //Storing some basic information of user
-    description: {type: String, default: ''},
     name: String,
-    image: String
+    image: String,
+    price: Number
 })
 const Product = mongoose.model('Product', productSchema, 'products')
 
