@@ -1,4 +1,5 @@
 const Store = require('../models/store.model')
+const Product = require('../models/product.model')
 const mongoose = require('mongoose')
 
 module.exports.createNewStore = async (req, res) => {
@@ -37,6 +38,21 @@ module.exports.getByID = async (req, res) => {
     })
 }
 
+module.exports.getProductByID = async (req, res) => {
+    try {
+        let id = req.params.id
+        let page = parseInt(req.query.page) || 1
+        const perPage = 20
+        let result = await Product.find({ store: id }).skip((page - 1) * perPage).limit(perPage)
+        if (!result) {
+            return res.status(404).send('404 Not found.')
+        }
+        res.status(200).send(result)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}
+
 
 module.exports.postByID = async (req, res) => {
     try {
@@ -50,7 +66,7 @@ module.exports.postByID = async (req, res) => {
             body: req.body.body,
             point: req.body.point
         }
-        if (req.file) {
+        if (req.files) {
             for (var i = 0; i < req.files.length; i++) {
                 newReview.photos.push(req.files[i].path)
             }
@@ -58,6 +74,26 @@ module.exports.postByID = async (req, res) => {
         result.reviews.push(newReview)
         result.save()
         res.status(200).send(newReview)
+    } catch (e) {
+        res.status(500).send(e)
+    }
+}
+
+module.exports.postProductByID = async (req, res) => {
+    try {
+        var id = req.params.id
+        var result = await Store.findById(id)
+        if (!result) {
+            return res.status(404).send('404 Not found.')
+        }
+        var newProduct = {
+            store: id,
+            description: req.body.description,
+            name: req.body.name,
+            image: req.file.path
+        }
+        newProduct.save()
+        res.status(200).send(newProduct)
     } catch (e) {
         res.status(500).send(e)
     }
