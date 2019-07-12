@@ -14,10 +14,10 @@ module.exports.createNewStore = async (req, res) => {
             storeType: req.body.storeType
         })
         if (req.files.length != 0) {
-            for (let i = 0; i < req.files.length -1; i++) {
+            for (let i = 0; i < req.files.length - 1; i++) {
                 newStore.photos.push(req.files[i].path)
             }
-            newStore.avatar=req.files[req.files.length -1].path
+            newStore.avatar = req.files[req.files.length - 1].path
         }
         newStore.save().then(() => {
             res.status(200).send(newStore)
@@ -29,14 +29,16 @@ module.exports.createNewStore = async (req, res) => {
 }
 
 module.exports.getByID = async (req, res) => {
-    var id = req.params.id
-    var result = await Store.findById(id)
-    if (!result) {
-        return res.status(404).send('404 Not found.')
-    }
-    res.status(200).send(result).catch((error) => {
+    try {
+        var id = req.params.id
+        var result = await Store.findById(id)
+        if (!result) {
+            return res.status(404).send('404 Not found.')
+        }
+        res.status(200).send(result)
+    } catch (error) {
         res.status(500).send(error)
-    })
+    }
 }
 
 module.exports.getProductByID = async (req, res) => {

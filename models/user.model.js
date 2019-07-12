@@ -55,6 +55,7 @@ const userSchema = Schema({
 userSchema.methods.toJSON = function () {
   const user = this
   const userObject = user.toObject()
+  userObject.avatar=userObject.avatar.replace('\\', '/').replace('\\', '/')
   delete userObject.password
   delete userObject.tokens
   delete userObject.hash

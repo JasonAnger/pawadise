@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const url = require('url')
 
 
 const storeSchema = new Schema({
@@ -19,7 +20,7 @@ const storeSchema = new Schema({
   //Reviews
   reviews: [{
     reviewer: mongoose.Types.ObjectId,
-    point: {type: Number, default: 4},
+    point: { type: Number, default: 4 },
     body: String,
     photos: [String]
   }]
@@ -28,6 +29,11 @@ const storeSchema = new Schema({
 storeSchema.methods.toJSON = function () {
   const store = this
   const storeObject = store.toObject()
+  // Replace cai \ thanh cai / ni
+  storeObject.avatar = storeObject.avatar.replace('\\', '/').replace('\\', '/')
+  for (let i = 0; i < storeObject.photos.length; i++) {
+    storeObject.photos[i] = storeObject.photos[i].replace('\\', '/').replace('\\', '/')
+  }
   var sum = 0
   storeObject.reviews.forEach((review) => {
     sum = sum + review.point

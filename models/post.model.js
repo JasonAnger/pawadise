@@ -32,6 +32,12 @@ const postSchema = Schema({
 postSchema.methods.toJSON = function () {
     const post = this
     const postObject = post.toObject()
+    for (let i = 0; i < postObject.photos.length; i++) {
+        postObject.photos[i] = postObject.photos[i].replace('\\', '/').replace('\\', '/')
+    }
+    for (let i = 0; i < postObject.comments.length; i++) {
+        postObject.comments[i].photo = postObject.comments[i].photo.replace('\\', '/').replace('\\', '/')
+    }
     postObject.likesQuantity = post.likes.length
     return postObject
 }

@@ -10,6 +10,17 @@ const productSchema = Schema({
     image: String,
     price: Number
 })
+
+productSchema.methods.toJSON = function () {
+    const product = this
+    const productObject = product.toObject()
+    // Replace cai \ thanh cai / ni
+    productObject.image = productObject.image.replace('\\', '/').replace('\\', '/')
+    delete productObject._id
+    delete productObject.store
+    return productObject
+}
+
 const Product = mongoose.model('Product', productSchema, 'products')
 
 module.exports = Product
