@@ -7,6 +7,25 @@ const Photo = require('../models/photo.model')
 
 const router = express.Router()
 
+function shuffle(arra1) {
+    let ctr = arra1.length;
+    let temp;
+    let index;
+
+    // While there are elements in the array
+    while (ctr > 0) {
+        // Pick a random index
+        index = Math.floor(Math.random() * ctr);
+        // Decrease ctr by 1
+        ctr--;
+        // And swap the last element with it
+        temp = arra1[ctr];
+        arra1[ctr] = arra1[index];
+        arra1[index] = temp;
+    }
+    return arra1;
+}
+
 router.get('/:type', async (req, res) => {
     try {
         let page = parseInt(req.query.page) || 1
@@ -29,7 +48,8 @@ router.get('/:type', async (req, res) => {
             result = await Photo.find({ hedgehog: true }).skip((page - 1) * perPage).limit(perPage)
         } else if (type == 'rabbit') {
             result = await Photo.find({ rabbit: true }).skip((page - 1) * perPage).limit(perPage)
-        } 
+        }
+        result = shuffle(result)
         res.status(200).send(result)
     } catch (err) {
         res.status(400).json(err)

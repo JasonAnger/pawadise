@@ -117,7 +117,7 @@ module.exports.search = async (req, res) => {
 
 module.exports.getShop = async (req, res) => {
     let page = parseInt(req.query.page) || 1
-    const perPage = 1
+    const perPage = 10
     let result = await Store.find({ storeType: 'Shop' }).skip((page - 1) * perPage).limit(perPage)
     if (!result) {
         return res.status(404).send('No matching results.')
