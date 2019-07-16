@@ -7,7 +7,10 @@ const sendWelcomeEmail = (email, name) => {
         to: email,
         from: 'Pawadise.vn@gmail.com',
         subject: 'Thanks for joining Pawadise Community!',
-        text: `Welcome to the Pet Community Pawadise, ${name}. Let me know how you get along with the app.`
+        text: `Hello ${name}!
+        Welcome to the Pet Community Pawadise, ${name}. 
+        Let me know how you get along with the app.`,
+        templateId: "d-d992f3cfc3e34bc8a5c1a1655dcb955b"
     })
 }
 
@@ -16,9 +19,11 @@ const sendResetPasswordCodeEmail = (email, name, code) => {
         to: email,
         from: 'Pawadise.vn@gmail.com',
         subject: 'Reset Password Code',
-        text: `Hello, ${name}. This is the code to confirm that you want to reset your password.
+        text: `Hello ${name}. 
+        This is the code to confirm that you want to reset your password.
         Please fill it in the redirect page to reset.
-        ${code}`
+        ${code}`,
+        templateId: "d-d992f3cfc3e34bc8a5c1a1655dcb955b"
     })    
 }
 
@@ -31,7 +36,8 @@ const sendRequest = (email, name, phone, content, title) => {
         `Email: ${email}
         Name: ${name}
         Phone: ${phone}
-        ${content}`
+        ${content}`,
+        templateId: "d-d992f3cfc3e34bc8a5c1a1655dcb955b"
     })    
 }
 
