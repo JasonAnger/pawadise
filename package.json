@@ -4,7 +4,7 @@
   "description": "Pawadise Project TeamHigh",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --inspect index.js",
+    "start": "env-cmd nodemon --inspect index.js",
     "dev": "env-cmd nodemon index.js",
     "test": "env-cmd jest --watch"
   },

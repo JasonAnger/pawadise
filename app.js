@@ -44,8 +44,8 @@ app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 
-app.get('/', authLogin, homeController.get)
-app.get('/home', authLogin, homeController.get)
+app.get('/', homeController.get)
+app.get('/home', homeController.get)
 
 app.get('/news', async (req, res) => {
     try {
@@ -73,7 +73,7 @@ app.get('/contact', async (req, res) => {
 app.post('/contact', async (req, res) => {
     try {
         Email.sendRequest(
-            req.body.Email,
+            req.body.email,
             req.body.name,
             req.body.phone,
             req.body.content,
