@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
         cb(null, './public/stores/')
     },
     filename: (req, file, cb) => {
-        cb(null, new Date().toDateString() + file.originalname)
+        cb(null, new Date().toISOString() + file.originalname)
     }
 })
 const upload = multer({
@@ -22,7 +22,7 @@ const upload = multer({
         fileSize: 512 * 512 * 5
     },
     fileFilter(req, file, cb) {
-        if (!file.originalname.match(/\.(jpg|jpeg|png|JPG|JPEG|PNG)$/)) {
+        if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
             return cb(new Error('Please upload an image'))
         }
 
@@ -30,16 +30,16 @@ const upload = multer({
     }
 })
 
-router.post('', upload.array('photos', 8), controller.createNewStore)
+router.post('/', upload.array('photos', 8), controller.createNewStore)
 
 router.get('/search', controller.search)
 
 router.get('/:id', controller.getByID)
 
+router.post('/:id', authLogin, upload.array('photos', 4), controller.postByID)
+
 router.get('/:id/product', controller.getProductByID)
 
-router.post('/:id/product', upload.single('image'), controller.postProductByID)
-
-router.post('/:id', authLogin, upload.array('photos', 4), controller.postByID)
+router.post('/:id/product', authLogin, upload.array('photos', 4), controller.postProductByID)
 
 module.exports = router
