@@ -1,15 +1,19 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+const User = require("./user.model")
+
 const postSchema = Schema({
     _id: Schema.Types.ObjectId,
     //ObjectID of User toString is Author
     author: { type: Schema.Types.ObjectId, default: null },
+    authorName: String,
     //Storing some basic information of user
     body: { type: String, default: '' },
     comments: [{
         //ObjectID of User toString is Comment's Author
         commentsAuthor: Schema.Types.ObjectId,
+        authorName: String,
         body: String,
         photo: { type: String, default: '' },
         date: { type: Date, default: Date.now }
@@ -28,6 +32,15 @@ const postSchema = Schema({
     tags: [{ tag: { type: String, default: '' } }],
     photos: [String]
 })
+
+// postSchema.methods.takeAuthorName = async () => {
+//     const post = this
+//     const postObject = post.
+//     var result = await User.findById(postObject.author)
+//     console.log(result)
+//     return result.name
+// }
+
 
 postSchema.methods.toJSON = function () {
     const post = this

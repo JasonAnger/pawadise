@@ -5,6 +5,30 @@ const sharp = require('sharp')
 const Post = require('../models/post.model')
 const User = require('../models/user.model')
 
+module.exports.post = async (req, res) => {
+    try {
+        var newPost = new Post({
+            _id: new mongoose.Types.ObjectId,
+            author: req.user._id,
+            authorName: req.user.name,
+            body: req.body.body,
+            isEvent: req.body.check,
+            tags: req.body.tags
+        })
+        if (req.files.length!=0) {
+            for (let i = 0; i < req.files.length; i++) {
+                newPost.photos.push(req.files[i].path)
+            }
+        }
+        newPost.notificationReceivers.push({receiver: req.user._id})
+        newPost.save().then(() => {
+            res.status(200).send(newPost)
+        })
+    } catch (err) {
+        res.status(400).json(err)
+    }
+}
+
 module.exports.getByID = async (req, res) => {
     var id = req.params.id
     var result = await Post.findById(id)
@@ -16,7 +40,6 @@ module.exports.getByID = async (req, res) => {
     })
 }
 
-
 module.exports.postByID = async (req, res) => {
     try {
         var id = req.params.id
@@ -27,6 +50,7 @@ module.exports.postByID = async (req, res) => {
         }
         var comment = {
             commentsAuthor: req.user._id,
+            authorName: req.user.name,
             body: req.body.comment
         }
         if (req.file) { comment.photo = req.file.path }
