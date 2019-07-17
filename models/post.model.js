@@ -23,6 +23,7 @@ const postSchema = Schema({
         likedUserName: String
     }],
     date: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now },
     //Post too long readMore = true (Hidden some in the body), 
     // ?readMore = false (Show it normally)
     readMore: { type: Boolean, default: false },

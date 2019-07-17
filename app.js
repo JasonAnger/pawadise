@@ -51,7 +51,7 @@ app.get('/news', async (req, res) => {
     try {
         let page = parseInt(req.query.page) || 1
         const perPage = 20
-        let posts = await Post.find().sort({'timestamp': -1}).skip((page - 1) * perPage).limit(perPage)
+        let posts = await Post.find().sort({'updatedAt':-1}).skip((page - 1) * perPage).limit(perPage)
         res.status(200).send(posts)
     } catch (e) {
         res.status(500).send(e)

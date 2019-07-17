@@ -26,20 +26,21 @@ const sendResetPasswordCodeEmail = (email, name, code) => {
         ${code}`,
         templateId: "d-d992f3cfc3e34bc8a5c1a1655dcb955b"
     }
-    msg = msg.toJSON()
     sgMail.send(msg)
 }
 
 const sendRequest = (email, name, phone, content, title) => {
     const msg = {
-        to: 'Pawadise.vn@gmail.com',
-        from: 'Pawadise.vn@gmail.com',
-        subject: `${title} - Request from ${name} - Phone: ${phone}`,
-        text: `Email: ${email}
+        "to": 'Pawadise.vn@gmail.com',
+        "from": 'Pawadise.vn@gmail.com',
+        "subject": `${title} - Request from ${name} - Phone: ${phone}`,
+        "text": `Email: ${email}
 Name: ${name}
 Phone: ${phone}
-${content}`
+${content}`,
+        "templateId": "d-d992f3cfc3e34bc8a5c1a1655dcb955b"
     }
+    console.log(msg)
     return sgMail.send(msg)
 }
 

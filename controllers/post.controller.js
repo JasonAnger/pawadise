@@ -71,6 +71,7 @@ module.exports.postByID = async (req, res) => {
                 user.save()
             }
         })
+        result.updatedAt = Date.now()
         result.save()
         res.status(200).send(result)
     } catch (err) {
@@ -106,7 +107,7 @@ module.exports.postLikeByID = async (req, res) => {
                 return !element.likedUserID.equals(req.user._id)
             })
         }
-
+        result.updatedAt = Date.now()
         result.save()
         res.status(200).send(result)
     } catch (e) {
