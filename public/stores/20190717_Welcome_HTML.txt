@@ -1,0 +1,575 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" /><!--[if !mso]><!-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" /><!--<![endif]-->
+    <!--[if (gte mso 9)|(IE)]>
+    <xml>
+    <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+    <!--[if (gte mso 9)|(IE)]>
+    <style type="text/css">
+      body {width: 600px;margin: 0 auto;}
+      table {border-collapse: collapse;}
+      table, td {mso-table-lspace: 0pt;mso-table-rspace: 0pt;}
+      img {-ms-interpolation-mode: bicubic;}
+    </style>
+    <![endif]-->
+
+    <style type="text/css">
+      body, p, div {
+        font-family: times new roman,times,serif;
+        font-size: 20px;
+      }
+      body {
+        color: #257085;
+      }
+      body a {
+        color: #82b9de;
+        text-decoration: none;
+      }
+      p { margin: 0; padding: 0; }
+      table.wrapper {
+        width:100% !important;
+        table-layout: fixed;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      img.max-width {
+        max-width: 100% !important;
+      }
+      .column.of-2 {
+        width: 50%;
+      }
+      .column.of-3 {
+        width: 33.333%;
+      }
+      .column.of-4 {
+        width: 25%;
+      }
+      @media screen and (max-width:480px) {
+        .preheader .rightColumnContent,
+        .footer .rightColumnContent {
+            text-align: left !important;
+        }
+        .preheader .rightColumnContent div,
+        .preheader .rightColumnContent span,
+        .footer .rightColumnContent div,
+        .footer .rightColumnContent span {
+          text-align: left !important;
+        }
+        .preheader .rightColumnContent,
+        .preheader .leftColumnContent {
+          font-size: 80% !important;
+          padding: 5px 0;
+        }
+        table.wrapper-mobile {
+          width: 100% !important;
+          table-layout: fixed;
+        }
+        img.max-width {
+          height: auto !important;
+          max-width: 480px !important;
+        }
+        a.bulletproof-button {
+          display: block !important;
+          width: auto !important;
+          font-size: 80%;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+        .columns {
+          width: 100% !important;
+        }
+        .column {
+          display: block !important;
+          width: 100% !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+      }
+    </style>
+    <!--user entered Head Start-->
+    
+     <!--End Head user entered-->
+  </head>
+  <body>
+    <center class="wrapper" data-link-color="#82b9de" data-body-style="font-size: 20px; font-family: times new roman,times,serif; color: #257085; background-color: #ffffff;">
+      <div class="webkit">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%" class="wrapper" bgcolor="#ffffff">
+          <tr>
+            <td valign="top" bgcolor="#ffffff" width="100%">
+              <table width="100%" role="content-container" class="outer" align="center" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="100%">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td>
+                          <!--[if mso]>
+                          <center>
+                          <table><tr><td width="600">
+                          <![endif]-->
+                          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="width: 100%; max-width:600px;" align="center">
+                            <tr>
+                              <td role="modules-container" style="padding: 0px 0px 0px 0px; color: #257085; text-align: left;" bgcolor="#ffffff" width="100%" align="left">
+                                
+    <table class="module preheader preheader-hide" role="module" data-type="preheader" border="0" cellpadding="0" cellspacing="0" width="100%"
+           style="display: none !important; mso-hide: all; visibility: hidden; opacity: 0; color: transparent; height: 0; width: 0;">
+      <tr>
+        <td role="module-content">
+          <p>Your Join is a happiness of The Pawadise Community</p>
+        </td>
+      </tr>
+    </table>
+  
+    <table class="wrapper" role="module" data-type="image" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+      <tr>
+        <td style="font-size:6px;line-height:10px;padding:0px 0px 0px 0px;background-color:#ffffff;" valign="top" align="center">
+          <a href="http://pawadise.cf/"><img class="max-width" border="0" style="display:block;color:#000000;text-decoration:none;font-family:Helvetica, arial, sans-serif;font-size:16px;max-width:60% !important;width:60%;height:auto !important;" src="https://marketing-image-production.s3.amazonaws.com/uploads/dbf9fc0cbf0530ebd240735473aef74c54ae02961bf22920326a7b6653ac55188b4a0ac0da06b7561061010213bf7bad8a51bca660641884cc5cc0e7071cff3d.png" alt="" width="360"></a>
+        </td>
+      </tr>
+    </table>
+  
+    <table class="module"
+           role="module"
+           data-type="spacer"
+           border="0"
+           cellpadding="0"
+           cellspacing="0"
+           width="100%"
+           style="table-layout: fixed;">
+      <tr>
+        <td style="padding:0px 0px 30px 0px;"
+            role="module-content"
+            bgcolor="">
+        </td>
+      </tr>
+    </table>
+  
+    <table class="module"
+           role="module"
+           data-type="spacer"
+           border="0"
+           cellpadding="0"
+           cellspacing="0"
+           width="100%"
+           style="table-layout: fixed;">
+      <tr>
+        <td style="padding:0px 0px 30px 0px;"
+            role="module-content"
+            bgcolor="">
+        </td>
+      </tr>
+    </table>
+  <table class="module" role="module" data-type="code" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+      <tr>
+        <td height="100%" valign="top">
+          {{text}}
+        </td>
+      </tr>
+    </table>
+    <table class="module"
+           role="module"
+           data-type="spacer"
+           border="0"
+           cellpadding="0"
+           cellspacing="0"
+           width="100%"
+           style="table-layout: fixed;">
+      <tr>
+        <td style="padding:0px 0px 30px 0px;"
+            role="module-content"
+            bgcolor="">
+        </td>
+      </tr>
+    </table>
+  
+    <table class="module"
+           role="module"
+           data-type="spacer"
+           border="0"
+           cellpadding="0"
+           cellspacing="0"
+           width="100%"
+           style="table-layout: fixed;">
+      <tr>
+        <td style="padding:0px 0px 30px 0px;"
+            role="module-content"
+            bgcolor="">
+        </td>
+      </tr>
+    </table>
+  
+    <table class="module"
+           role="module"
+           data-type="spacer"
+           border="0"
+           cellpadding="0"
+           cellspacing="0"
+           width="100%"
+           style="table-layout: fixed;">
+      <tr>
+        <td style="padding:0px 0px 30px 0px;"
+            role="module-content"
+            bgcolor="">
+        </td>
+      </tr>
+    </table>
+  
+    <table class="module"
+           role="module"
+           data-type="spacer"
+           border="0"
+           cellpadding="0"
+           cellspacing="0"
+           width="100%"
+           style="table-layout: fixed;">
+      <tr>
+        <td style="padding:0px 0px 30px 0px;"
+            role="module-content"
+            bgcolor="">
+        </td>
+      </tr>
+    </table>
+  
+    <table  border="0"
+            cellpadding="0"
+            cellspacing="0"
+            align="center"
+            width="100%"
+            role="module"
+            data-type="columns"
+            data-version="2"
+            style="padding:0px 190px 0px 0px;box-sizing:border-box;"
+            bgcolor="">
+      <tr role='module-content'>
+        <td height="100%" valign="top">
+            <!--[if (gte mso 9)|(IE)]>
+              <center>
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-spacing:0;border-collapse:collapse;table-layout: fixed;" >
+                  <tr>
+            <![endif]-->
+          
+    <!--[if (gte mso 9)|(IE)]>
+      <td width="205.000px" valign="top" style="padding: 0px 0px 0px 0px;border-collapse: collapse;" >
+    <![endif]-->
+
+    <table  width="205.000"
+            style="width:205.000px;border-spacing:0;border-collapse:collapse;margin:0px 0px 0px 0px;"
+            cellpadding="0"
+            cellspacing="0"
+            align="left"
+            border="0"
+            bgcolor=""
+            class="column column-0 of-2
+                  empty"
+      >
+      <tr>
+        <td style="padding:0px;margin:0px;border-spacing:0;">
+            <table class="module" role="module" data-type="code" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+      <tr>
+        <td height="100%" valign="top">
+          <img src="https://thumbs.gfycat.com/RecentLankyGoldfinch-size_restricted.gif" width="200">
+        </td>
+      </tr>
+    </table>
+        </td>
+      </tr>
+    </table>
+
+    <!--[if (gte mso 9)|(IE)]>
+      </td>
+    <![endif]-->
+    <!--[if (gte mso 9)|(IE)]>
+      <td width="205.000px" valign="top" style="padding: 0px 0px 0px 0px;border-collapse: collapse;" >
+    <![endif]-->
+
+    <table  width="205.000"
+            style="width:205.000px;border-spacing:0;border-collapse:collapse;margin:0px 0px 0px 0px;"
+            cellpadding="0"
+            cellspacing="0"
+            align="left"
+            border="0"
+            bgcolor=""
+            class="column column-1 of-2
+                  empty"
+      >
+      <tr>
+        <td style="padding:0px;margin:0px;border-spacing:0;">
+            <table class="module" role="module" data-type="code" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+      <tr>
+        <td height="100%" valign="top">
+          <img class="centered-and-cropped" width="400" style="opacity:0.5" src="https://vietproject.net/wp-content/uploads/2015/11/Clean-Kinetic-Typography-3.jpg">
+        </td>
+      </tr>
+    </table>
+        </td>
+      </tr>
+    </table>
+
+    <!--[if (gte mso 9)|(IE)]>
+      </td>
+    <![endif]-->
+            <!--[if (gte mso 9)|(IE)]>
+                  <tr>
+                </table>
+              </center>
+            <![endif]-->
+        </td>
+      </tr>
+    </table>
+  
+    <table  border="0"
+            cellpadding="0"
+            cellspacing="0"
+            align="center"
+            width="100%"
+            role="module"
+            data-type="columns"
+            data-version="2"
+            style="padding:0px 0px 0px 0px;background-color:#dceef3;box-sizing:border-box;"
+            bgcolor="#dceef3">
+      <tr role='module-content'>
+        <td height="100%" valign="top">
+            <!--[if (gte mso 9)|(IE)]>
+              <center>
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-spacing:0;border-collapse:collapse;table-layout: fixed;" >
+                  <tr>
+            <![endif]-->
+          
+    <!--[if (gte mso 9)|(IE)]>
+      <td width="290.000px" valign="top" style="padding: 0px 0px 0px 0px;border-collapse: collapse;" >
+    <![endif]-->
+
+    <table  width="290.000"
+            style="width:290.000px;border-spacing:0;border-collapse:collapse;margin:0px 10px 0px 0px;"
+            cellpadding="0"
+            cellspacing="0"
+            align="left"
+            border="0"
+            bgcolor="#dceef3"
+            class="column column-0 of-2
+                  empty"
+      >
+      <tr>
+        <td style="padding:0px;margin:0px;border-spacing:0;">
+            
+    <table class="module"
+           role="module"
+           data-type="spacer"
+           border="0"
+           cellpadding="0"
+           cellspacing="0"
+           width="100%"
+           style="table-layout: fixed;">
+      <tr>
+        <td style="padding:0px 0px 30px 0px;"
+            role="module-content"
+            bgcolor="">
+        </td>
+      </tr>
+    </table>
+  
+    <table class="module"
+           role="module"
+           data-type="spacer"
+           border="0"
+           cellpadding="0"
+           cellspacing="0"
+           width="100%"
+           style="table-layout: fixed;">
+      <tr>
+        <td style="padding:0px 0px 30px 0px;"
+            role="module-content"
+            bgcolor="">
+        </td>
+      </tr>
+    </table>
+  <table class="module" role="module" data-type="code" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+      <tr>
+        <td height="100%" valign="top">
+          <footer classname="footer"> 
+  <div classname="footer__left"> 
+    <img src="https://lh3.googleusercontent.com/7pi5HCMzvXfKrxZwtFQiBZiFDfi8srhveSrBnFcoNKH2bx44TBNiqmIJV91UPxne37gY4zzVPozJuKsCMzj2kZORFL2sD3ubkslm125-IZboCL7UHcvZK7ttANCSEy4gQECkyAni-BbNljXZm2z7BR3Gq53eFSfhjWsPqGFUlNWj2WeX-QBMVEqv4dpROo47GC1GR11Wr9fuyb03E9B8ZxqpTLgEoZwd-ZrYRvLjcbop60ncleuXBHUxXSmVIpkXPVAd5a4sooI9U4OAGc8lHz2_C9x00ryAhAnIptT0tEXAddxHwgurF0fTLFJ0X2fA9LhyIW7AoqfUQqMTgf4FNB2zIhmFiaP9H03wfLlJAxJiEjxxntCOcST50ce_wQiFf43ZEZ51hA0ab5OAD8yJcKMWxxQh417Kyk7q2gSQyF4kTIuqHgVQPsh5pmwdDTovPX67yN7rfuehK9v8aCs9wDoeBL0UuM0AfTe7aCWvIBq28s3sk60bGE9TYAQax5IP0sL_pxeEhVGvnj6cZ3YdoPOLZmYB2eGyJlLlPj3AQdtseksnWYx9dxCN_c7GPxl9ixahbvxsc6XbNKLKhlWsVSSRQIlsEfwrmqnOlCuNb7-0QlPm0EUWperbA5LzFRnYW08uukvbR4sL20oZNYKWiqKn7hdUmbJj_Nv9Pqu3qvioRX60iWKL3JTzCTn5BTY0-1HvqqGcnnDV6yIhSIWygMs=w297-h294-no" width="50" height="49" alt="small logo" classname="footer__left--logo-small"> 
+    <img src="https://lh3.googleusercontent.com/lwSN0aVvxf3IUT-9k0qhRITyaDLlL4Koq-Y8ud1RmtuXzyTqDIE_JYlW1zAY4f6xaLqBa-584z-Svjo2aPkR2peC4kkzQahniPo9HWzrodRHD3sAUOC2ZW5Cg3uwIQVHrjCV47n0winKCQNy6ki9aiiyO3IYb2PF16dGpgqS3Zq9oium862UkLnZ9-Wdql6j4KN-48yqQddIahi7_F4nyXK7SrRwZAg--h1JubKySsfWSHhrVc3E-KUq6KtpEjFGVkQtVkw3DJn7JQ5MRrSfTwKBAbhUplaOIlhhPpjv5QThjufhhpJBk4JjrahkYHhpfqO33fVdrSGIazPB8AKblSyrjhmxOl5Lhk_1ncczlBG7HTC_NmWQHs9L23iEOCW91bzBvqCiZG06KnA4gXQHFiwlkMwjcxq1Pmj5Dn2Csgr2AIU4XxHYsooq5XC-MKEKRuELgJWif1Sn3kDRxMHAIj__i440MjcNndavp6Vwu-QsLtS-I-FaQCk5WMwxJM8wVFReE283yAbcR5Ic8SsjW15bG-FgOUh8bw4F7dk3NCkJdGqW9y7GA1P2gFD4OBJSlndjhp5e0e1xGA1LxMruRli42jnZybc3GBser-6NKoIq2B7Fs3SzMrxR1Lg49OnN3Seq8rew2k5N8wCn3qKx7n59vHmUEh4zZW00h0gYNsIaOQ0fdIVTJFJ8MtCWWhwF0R6Rxynyb2rihNEMNukx_ZQ=w1014-h177-no" width="230" height="38" alt="main logo" classname="footer__left--logo-big">
+  </div> 
+</footer>
+        </td>
+      </tr>
+    </table>
+    <table class="module"
+           role="module"
+           data-type="spacer"
+           border="0"
+           cellpadding="0"
+           cellspacing="0"
+           width="100%"
+           style="table-layout: fixed;">
+      <tr>
+        <td style="padding:0px 0px 30px 0px;"
+            role="module-content"
+            bgcolor="">
+        </td>
+      </tr>
+    </table>
+  
+        </td>
+      </tr>
+    </table>
+
+    <!--[if (gte mso 9)|(IE)]>
+      </td>
+    <![endif]-->
+    <!--[if (gte mso 9)|(IE)]>
+      <td width="290.000px" valign="top" style="padding: 0px 0px 0px 0px;border-collapse: collapse;" >
+    <![endif]-->
+
+    <table  width="290.000"
+            style="width:290.000px;border-spacing:0;border-collapse:collapse;margin:0px 0px 0px 10px;"
+            cellpadding="0"
+            cellspacing="0"
+            align="left"
+            border="0"
+            bgcolor="#dceef3"
+            class="column column-1 of-2
+                  empty"
+      >
+      <tr>
+        <td style="padding:0px;margin:0px;border-spacing:0;">
+            <table class="module" role="module" data-type="code" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+      <tr>
+        <td height="100%" valign="top">
+          <div classname="footer__right">
+
+                    <div classname="footer__icon"><i classname="fas fa-map-marker-alt fa-fw fa-2x"></i>&nbsp;  
+                        <a classname="footer__link footer__link--unclickable" href="">70 Phan Thanh, Đà Nẵng</a>
+                    </div>
+                    <div classname="footer__icon"><i classname="fas fa-phone-square-alt fa-fw fa-2x"></i>&nbsp; 
+                        <a classname="footer__link footer__link--unclickable" href="">0965 897 211</a>
+                    </div>
+                    <div classname="footer__icon"><i classname="fas fa-envelope-square fa-fw fa-2x"></i>&nbsp; 
+                        <a classname="footer__link footer__link--clickable" href="mailto:pawadise.vn@gmail.com?subject=">pawadise.vn@gmail.com</a>
+                    </div>
+                    <div classname="footer__icon"><i classname="fab fa-facebook-square fa-fw fa-2x"></i>&nbsp; 
+                        <a classname="footer__link " href="https://www.facebook.com/pawadisevn/" target="_blank" rel="noopener noreferrer"><span classname="footer__link--clickable">facebook.com/pawadisevn</span></a>
+                    </div>
+
+                </div>
+        </td>
+      </tr>
+    </table>
+    <table class="module" role="module" data-type="social" align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td valign="top" style="padding:030px 0px 0px 0px;font-size:6px;line-height:10px;">
+            <table align="left">
+              <tbody>
+                <tr>
+                  <td style="padding: 0px 5px;">
+        <a role="social-icon-link"  href="facebook.com/pawadisevn" target="_blank" alt="Facebook"
+          data-nolink="false"
+          title="Facebook "
+          style="-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;display:inline-block;background-color:#3B579D;">
+          <img role="social-icon" alt="Facebook" title="Facebook "
+            height="33"
+            width="33"
+            style="height: 33px, width: 33px"
+            src="https://marketing-image-production.s3.amazonaws.com/social/white/facebook.png" />
+        </a>
+      </td>
+                  
+                  <td style="padding: 0px 5px;">
+        <a role="social-icon-link"  href="instagram.com/pawadisevn" target="_blank" alt="Instagram"
+          data-nolink="false"
+          title="Instagram "
+          style="-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;display:inline-block;background-color:#7F4B30;">
+          <img role="social-icon" alt="Instagram" title="Instagram "
+            height="33"
+            width="33"
+            style="height: 33px, width: 33px"
+            src="https://marketing-image-production.s3.amazonaws.com/social/white/instagram.png" />
+        </a>
+      </td>
+                  <td style="padding: 0px 5px;">
+        <a role="social-icon-link"  href="pawadise.vn@gmail.com" target="_blank" alt="Google"
+          data-nolink="false"
+          title="Google "
+          style="-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;display:inline-block;background-color:#D44132;">
+          <img role="social-icon" alt="Google" title="Google "
+            height="33"
+            width="33"
+            style="height: 33px, width: 33px"
+            src="https://marketing-image-production.s3.amazonaws.com/social/white/google-plus.png" />
+        </a>
+      </td>
+                  
+                  
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <table class="module"
+           role="module"
+           data-type="spacer"
+           border="0"
+           cellpadding="0"
+           cellspacing="0"
+           width="100%"
+           style="table-layout: fixed;">
+      <tr>
+        <td style="padding:0px 0px 30px 0px;"
+            role="module-content"
+            bgcolor="">
+        </td>
+      </tr>
+    </table>
+  
+        </td>
+      </tr>
+    </table>
+
+    <!--[if (gte mso 9)|(IE)]>
+      </td>
+    <![endif]-->
+            <!--[if (gte mso 9)|(IE)]>
+                  <tr>
+                </table>
+              </center>
+            <![endif]-->
+        </td>
+      </tr>
+    </table>
+  
+                              </td>
+                            </tr>
+                          </table>
+                          <!--[if mso]>
+                          </td></tr></table>
+                          </center>
+                          <![endif]-->
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </center>
+  </body>
+</html>

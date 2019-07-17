@@ -43,7 +43,7 @@ router.get('/me', controller.getMe)
 
 router.get('/:id', controller.getUserById)
 
-router.patch('/me', upload.single('avatar'), controller.patchUserById)
+router.patch('/me', upload.single('avatar'), controller.patchUser)
 
 router.get('/:username', controller.getUserByUsername)
 

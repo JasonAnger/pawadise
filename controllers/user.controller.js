@@ -39,8 +39,8 @@ module.exports.getUserById = async (req, res) => {
     })
 }
 
-module.exports.patchUserById = async (req, res) => {
-    req.body.avatar = req.file.path
+module.exports.patchUser = async (req, res) => {
+    if (req.file!==undefined) { req.body.avatar = req.file.path }
     const updates = Object.keys(req.body)
     const allowedUpdates = ['name', 'email', 'age', 'avatar', 'street', 'district', 'city', 'phoneNumber']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))

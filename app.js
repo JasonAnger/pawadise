@@ -79,6 +79,7 @@ app.post('/contact', async (req, res) => {
             req.body.content,
             req.body.title
         )
+        res.status(200).send('Sending Success.')
     } catch (e) {
         res.status(500).send(e)
     }
