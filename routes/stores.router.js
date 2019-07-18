@@ -34,6 +34,8 @@ router.post('/', upload.array('photos', 8), controller.createNewStore)
 
 router.get('/search', controller.search)
 
+router.patch('/:id', upload.array('photos', 8), controller.patchByID)
+
 router.get('/:id', controller.getByID)
 
 router.post('/:id', authLogin, upload.array('photos', 4), controller.postByID)

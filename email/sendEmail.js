@@ -24,7 +24,7 @@ const sendResetPasswordCodeEmail = (email, name, code) => {
         <h1>Hello ${name}. </h1>
         <h3>This is the code to confirm that you want to reset your password.
         Please fill it in the redirect page to reset. </h3>
-        <head>${code}</head></center>`
+        <h1>${code}</h1></center>`
     }
     sgMail.send(msg)
 }

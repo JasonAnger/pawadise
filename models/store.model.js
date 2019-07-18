@@ -34,8 +34,9 @@ storeSchema.methods.toJSON = function () {
   for (let i = 0; i < storeObject.photos.length; i++) {
     storeObject.photos[i] = storeObject.photos[i].replace('\\', '/').replace('\\', '/')
   }
-  storeObject.address=storeObject.address.split("\n",10)
-  storeObject.description=storeObject.description.split("\n",20)
+  if (storeObject.phoneNumber.indexOf("\n") > 0) storeObject.phoneNumber = storeObject.phoneNumber.split("\n", 10)
+  storeObject.address = storeObject.address.split("\n", 10)
+  storeObject.description = storeObject.description.split("\n", 20)
   var sum = 0
   storeObject.reviews.forEach((review) => {
     sum = sum + review.point

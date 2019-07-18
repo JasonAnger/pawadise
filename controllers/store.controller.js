@@ -27,6 +27,29 @@ module.exports.createNewStore = async (req, res) => {
     }
 }
 
+module.exports.patchByID = async (req, res) => {
+    try {
+        var id = req.params.id
+        var result = await Store.findById(id)
+        if (!result) {
+            return res.status(404).send('404 Not found.')
+        }
+        if(req.body.address) result.address=req.body.address
+        if(req.body.phoneNumber) result.phoneNumber=req.body.phoneNumber
+        if(req.body.openTime) result.openTime=req.body.openTime
+        if(req.body.description) result.description=req.body.description
+        if (req.files) {
+            for (var i = 0; i < req.files.length; i++) {
+                newReview.photos.push(req.files[i].path)
+            }
+        }
+        result.save()
+        res.status(200).send(result)
+    } catch (e) {
+        res.status(500).send(e)
+    }
+}
+
 module.exports.getByID = async (req, res) => {
     try {
         var id = req.params.id
@@ -99,12 +122,9 @@ module.exports.postProductByID = async (req, res) => {
         newProduct.save()
         res.status(200).send(newProduct)
     } catch (e) {
-        console.log(e)
         res.status(500).send(e)
     }
 }
-
-
 
 module.exports.search = async (req, res) => {
     try {
