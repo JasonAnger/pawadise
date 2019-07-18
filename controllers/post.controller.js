@@ -1,6 +1,4 @@
 const mongoose = require('mongoose')
-const sharp = require('sharp')
-
 
 const Post = require('../models/post.model')
 const User = require('../models/user.model')
@@ -15,12 +13,12 @@ module.exports.post = async (req, res) => {
             isEvent: req.body.check,
             tags: req.body.tags
         })
-        if (req.files.length!=0) {
+        if (req.files.length != 0) {
             for (let i = 0; i < req.files.length; i++) {
                 newPost.photos.push(req.files[i].path)
             }
         }
-        newPost.notificationReceivers.push({receiver: req.user._id})
+        newPost.notificationReceivers.push({ receiver: req.user._id })
         newPost.save().then(() => {
             res.status(200).send(newPost)
         })
@@ -59,7 +57,7 @@ module.exports.postByID = async (req, res) => {
         var doesNotificate = await result.notificationReceivers.filter((element) => {
             return element.receiver.equals(req.user._id)
         })
-        if (doesNotificate.length==0) {
+        if (doesNotificate.length == 0) {
             result.notificationReceivers.push({ receiver: req.user._id })
         }
         result.notificationReceivers.forEach(async (element) => {
@@ -118,8 +116,8 @@ module.exports.postLikeByID = async (req, res) => {
 module.exports.deleteByID = async (req, res) => {
     var id = req.params.id
     var result = await Post.findById(id)
-    if(req.user._id!=result.author){
-    res.status(200).send("Your post has been deleted")
-    } else {res.status(405).send("405 METHOD NOT ALLOWED")}
+    if (req.user._id != result.author) {
+        res.status(200).send("Your post has been deleted")
+    } else { res.status(405).send("405 METHOD NOT ALLOWED") }
 }
 

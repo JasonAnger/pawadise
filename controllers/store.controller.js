@@ -23,7 +23,6 @@ module.exports.createNewStore = async (req, res) => {
             res.status(200).send(newStore)
         })
     } catch (err) {
-        console.log(err)
         res.status(400).send(err)
     }
 }
@@ -45,7 +44,7 @@ module.exports.getProductByID = async (req, res) => {
     try {
         let id = req.params.id
         let page = parseInt(req.query.page) || 1
-        const perPage = 20
+        const perPage = 12
         let result = await Product.find({ store: id }).skip((page - 1) * perPage).limit(perPage)
         if (!result) {
             return res.status(404).send('404 Not found.')
@@ -108,33 +107,39 @@ module.exports.postProductByID = async (req, res) => {
 
 
 module.exports.search = async (req, res) => {
-    var q = req.query.q
-    var result = await Store.find({ name: /q/i }).exec()
-    res.status(200).send(result).catch((error) => {
+    try {
+        var q = req.query.q
+        var result = await Store.find({name: {$regex: q, $options: 'i'}}).exec()
+        res.status(200).send(result)
+    } catch (error) {
         res.status(500).send(error)
-    })
+    }
 }
 
 module.exports.getShop = async (req, res) => {
-    let page = parseInt(req.query.page) || 1
-    const perPage = 10
-    let result = await Store.find({ storeType: 'Shop' }).skip((page - 1) * perPage).limit(perPage)
-    if (!result) {
-        return res.status(404).send('No matching results.')
-    }
-    res.status(200).send(result).catch((error) => {
+    try {
+        let page = parseInt(req.query.page) || 1
+        const perPage = 6
+        let result = await Store.find({ storeType: 'Shop' }).skip((page - 1) * perPage).limit(perPage)
+        if (!result) {
+            return res.status(404).send('No matching results.')
+        }
+        res.status(200).send(result)
+    } catch (error) {
         res.status(500).send(error)
-    })
+    }
 }
 
 module.exports.getService = async (req, res) => {
-    let page = parseInt(req.query.page) || 1
-    const perPage = 10
-    let result = await Store.find({ storeType: 'Service' }).skip((page - 1) * perPage).limit(perPage)
-    if (!result) {
-        return res.status(404).send('No matching results.')
-    }
-    res.status(200).send(result).catch((error) => {
+    try {
+        let page = parseInt(req.query.page) || 1
+        const perPage = 6
+        let result = await Store.find({ storeType: 'Service' }).skip((page - 1) * perPage).limit(perPage)
+        if (!result) {
+            return res.status(404).send('No matching results.')
+        }
+        res.status(200).send(result)
+    } catch (error) {
         res.status(500).send(error)
-    })
+    }
 }
