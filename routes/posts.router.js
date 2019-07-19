@@ -41,5 +41,6 @@ router.post('/:id/like', controller.postLikeByID)
 
 router.delete('/:id', controller.deleteByID)
 
+router.delete('/:id/:comment', controller.deleteCommentByID)
 
 module.exports = router

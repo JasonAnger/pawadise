@@ -117,7 +117,18 @@ module.exports.deleteByID = async (req, res) => {
     var id = req.params.id
     var result = await Post.findById(id)
     if (req.user._id != result.author) {
+        await Post.findByIdAndDelete(id)
         res.status(200).send("Your post has been deleted")
     } else { res.status(405).send("405 METHOD NOT ALLOWED") }
 }
 
+module.exports.deleteCommentByID = async (req, res) => {
+    var id = req.params.id
+    var comment = req.params.comment
+    var result = await Post.findById(id)
+    if (req.user._id != result.author) {
+        result.comments=result.comments.filter((element) => { return !element._id.equals(comment)})
+        result.save()
+        res.status(200).send("Your post has been deleted")
+    } else { res.status(405).send("405 METHOD NOT ALLOWED") }
+}
