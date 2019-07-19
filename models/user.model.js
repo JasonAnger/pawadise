@@ -31,7 +31,7 @@ const userSchema = Schema({
     trim: true,
     lowercase: true
   },
-  phoneNumber: { type: String, trim: true },
+  phoneNumber: { type: String, default: ''},
   //password save as md5 String and hash is a bcrypt hash to be more secure 
   password: String,
   //hash = bcrypt 10 times (md5Password + username)

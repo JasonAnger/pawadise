@@ -40,16 +40,18 @@ module.exports.getUserById = async (req, res) => {
 }
 
 module.exports.patchUser = async (req, res) => {
-    if (req.file!==undefined) { req.body.avatar = req.file.path }
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['name', 'email', 'age', 'avatar', 'street', 'district', 'city', 'phoneNumber']
+    const allowedUpdates = ['name', 'email', 'age', 'avatar', 'phoneNumber']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
-
     if (!isValidOperation) {
         return res.status(400).send({ error: 'Invalid updates!' })
     }
     try {
         updates.forEach((update) => req.user[update] = req.body[update])
+        if (req.file !== undefined) { req.body.avatar = req.file.path }
+        if (req.body.street) req.user.address.street = req.body.street
+        if (req.body.district) req.user.address.street = req.body.street
+        if (req.body.city) req.user.address.street = req.body.street
         await req.user.save()
         res.send(req.user)
     } catch (e) {
