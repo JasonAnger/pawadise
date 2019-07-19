@@ -32,14 +32,14 @@ const sendResetPasswordCodeEmail = (email, name, code) => {
 const sendRequest = (email, name, phone, content, title) => {
     const msg = {
         to: 'Pawadise.vn@gmail.com',
-        from: 'Pawadise.vn@gmail.com',
+        from: 'no-reply-Pawadise@pawadise.cf',
         subject: `${title} - Request from ${name} - Phone: ${phone}`,
         html: `<center><a href="http://pawadise.cf/"><img src="https://marketing-image-production.s3.amazonaws.com/uploads/dbf9fc0cbf0530ebd240735473aef74c54ae02961bf22920326a7b6653ac55188b4a0ac0da06b7561061010213bf7bad8a51bca660641884cc5cc0e7071cff3d.png" alt="" width="360"></a>
-        <a><h3>Email: ${email}
-        Name: ${name}
-        Phone: ${phone}
+        <a><h3><br>Email: ${email} </br>
+        <br>Name: ${name}</br>
+        <br>Phone: ${phone}</br>
         </h3></a>
-        <h1>${content}</h1></center>`
+        <h1><br>${content}</br></h1></center>`
     }
     return sgMail.send(msg)
 }
