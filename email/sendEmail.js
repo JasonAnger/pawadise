@@ -5,7 +5,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 const sendWelcomeEmail = (email, name) => {
     const msg = {
         to: email,
-        from: 'Pawadise.vn@gmail.com',
+        from: 'PawadiseCommunity@pawadise.cf',
         subject: 'Thanks for joining Pawadise Community!',
         html: `<center><a href="http://pawadise.cf/"><img src="https://marketing-image-production.s3.amazonaws.com/uploads/dbf9fc0cbf0530ebd240735473aef74c54ae02961bf22920326a7b6653ac55188b4a0ac0da06b7561061010213bf7bad8a51bca660641884cc5cc0e7071cff3d.png" alt="" width="360"></a>
         <h1>Hello ${name}. </h1>
@@ -18,7 +18,7 @@ const sendWelcomeEmail = (email, name) => {
 const sendResetPasswordCodeEmail = (email, name, code) => {
     const msg = {
         to: email,
-        from: 'Pawadise.vn@gmail.com',
+        from: 'PawadiseCommunity@pawadise.cf',
         subject: 'Reset Password Code',
         html: `<center><a href="http://pawadise.cf/"><img src="https://marketing-image-production.s3.amazonaws.com/uploads/dbf9fc0cbf0530ebd240735473aef74c54ae02961bf22920326a7b6653ac55188b4a0ac0da06b7561061010213bf7bad8a51bca660641884cc5cc0e7071cff3d.png" alt="" width="360"></a>
         <h1>Hello ${name}. </h1>
