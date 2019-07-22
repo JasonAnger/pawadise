@@ -40,7 +40,7 @@ module.exports.patchByID = async (req, res) => {
         if(req.body.description) result.description=req.body.description
         if (req.files) {
             for (var i = 0; i < req.files.length; i++) {
-                newReview.photos.push(req.files[i].path)
+                result.photos.push(req.files[i].path)
             }
         }
         result.save()
