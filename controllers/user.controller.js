@@ -48,7 +48,7 @@ module.exports.patchUser = async (req, res) => {
     }
     try {
         updates.forEach((update) => req.user[update] = req.body[update])
-        if (req.file !== undefined) { req.body.avatar = req.file.path }
+        if (req.file) { req.user.avatar = req.file.path }
         if (req.body.street) req.user.address.street = req.body.street
         if (req.body.district) req.user.address.district = req.body.district
         if (req.body.city) req.user.address.city = req.body.city
