@@ -48,6 +48,7 @@ module.exports.postByID = async (req, res) => {
         }
         var comment = {
             commentsAuthor: req.user._id,
+            avatar: req.user.avatar,
             authorName: req.user.name,
             body: req.body.comment
         }

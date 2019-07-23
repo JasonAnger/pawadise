@@ -88,6 +88,8 @@ module.exports.postByID = async (req, res) => {
         }
         var newReview = {
             reviewer: req.user._id,
+            author: req.user.name,
+            avatar: req.user.avatar,
             body: req.body.body,
             point: req.body.point
         }

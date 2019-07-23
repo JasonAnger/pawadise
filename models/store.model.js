@@ -20,6 +20,8 @@ const storeSchema = new Schema({
   //Reviews
   reviews: [{
     reviewer: mongoose.Types.ObjectId,
+    author: String,
+    avatar: String,
     point: { type: Number, default: 4 },
     body: String,
     photos: [String]

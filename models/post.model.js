@@ -14,6 +14,7 @@ const postSchema = Schema({
         //ObjectID of User toString is Comment's Author
         commentsAuthor: Schema.Types.ObjectId,
         authorName: String,
+        avatar: String,
         body: String,
         photo: { type: String, default: '' },
         date: { type: Date, default: Date.now }
