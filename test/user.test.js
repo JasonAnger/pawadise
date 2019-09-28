@@ -2,11 +2,11 @@ const request = require('supertest')
 const app = require('../app')
 const User = require('../models/user.model')
 
-// beforeEach(async () => {
-//     await User.deleteMany()
-// })
+//  beforeEach(async () => {
+//      await User.deleteMany()
+//  })
 
-test('Signup a User', async () => {
+test('Signup already exist User', async () => {
     await request(app).post('/register').send({
         name: 'Jay the Administrator',
         username: 'jayan',
@@ -15,7 +15,7 @@ test('Signup a User', async () => {
         city: 'Da Nang',
         phoneNumber: '+84965897211',
         password: '7749password'
-    }).expect(201)
+    }).expect(400)
 })
 
 test('Login', async () => {
@@ -26,6 +26,14 @@ test('Login', async () => {
 })
 
 
+
+test('News page', async () => {
+    await request(app).get('/news').expect(200)
+})
+
+test('Gallery page', async () => {
+    await request(app).get('/gallery/pet').expect(200)
+})
 
 test('Error page', async () => {
     await request(app).get('/uisb').expect(404)
